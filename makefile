@@ -1,16 +1,16 @@
 CC = gcc
 
-# task1 : task1.o utils.o queue.o
-# 	gcc -g task1.o utils.o queue.o -o task1 -pthread 
+task-1-30067863 : task-1-30067863.o utils.o queue.o
+	gcc -g task-1-30067863.o utils.o queue.o -o task-1-30067863 -pthread 
 
-# task1.o : task1.c utils.h queue.h
-# 	gcc -g -Wall -c task1.c -pthread
+task-1-30067863.o : task-1-30067863.c utils.h queue.h
+	gcc -g -Wall -c task-1-30067863.c -pthread
 
-task2 : task2.o utils.o queue.o
-	gcc -g task2.o utils.o queue.o -o task2 -pthread 
+# task-2-30067863 : task-2-30067863.o utils.o queue.o
+# 	gcc -g task-2-30067863.o utils.o queue.o -o task-2-30067863 -pthread 
 
-task2.o : task2.c utils.h queue.h
-	gcc -g -Wall -c task2.c -pthread
+# task-2-30067863.o : task-2-30067863.c utils.h queue.h
+# 	gcc -g -Wall -c task-2-30067863.c -pthread
 
 utils.o : utils.c utils.h
 	gcc -g -Wall -c utils.c
