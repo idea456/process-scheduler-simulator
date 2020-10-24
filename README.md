@@ -1,4 +1,4 @@
-# process-scheduler-simulator
+# Process Scheduler Simulator
 Wrote a simple simulation of various uniprocessor scheduling algorithms such as FCFS (First-Come-First-Served), Round Robin with quantum of 2, and EDF (Earliest-Deadline-First) as part of my Operating Systems university project.
 
 ## First-Come-First-Served
