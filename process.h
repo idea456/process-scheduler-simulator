@@ -4,7 +4,7 @@
 #define PROCESS
 
 typedef enum {
-    START, RUNNING, WAITING, EXIT
+    START, RUNNING, EXIT
 } process_state_t;
 
 

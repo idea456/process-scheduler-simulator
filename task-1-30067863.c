@@ -48,7 +48,7 @@ void runFCFS(pcb_t *processes, int length, Queue processQueue, Queue readyQueue)
     // an infinite loop that runs continiously until there is no more process in ready/process queue and CPU is not occupied
     while(true) {
         // check for any new processes with its arrival time matching the current clock cycle
-        if(queueEmpty(&processQueue) == false && checkHead(&processQueue)->entryTime == tick) {
+        while(queueEmpty(&processQueue) == false && checkHead(&processQueue)->entryTime == tick) {
             next_process = serveQueue(&processQueue);
             next_process->state = START;
 
@@ -106,7 +106,7 @@ void runFCFS(pcb_t *processes, int length, Queue processQueue, Queue readyQueue)
             current_process->turnaroundTime = tick - current_process->entryTime;
             current_process->waitTime = current_process->turnaroundTime - current_process->serviceTime;
 
-            if(tick - current_process->entryTime <= current_process->deadlineTime) {
+            if(current_process->turnaroundTime <= current_process->deadlineTime) {
                 current_process->deadlineMet = 1;
             } else {
                 current_process->deadlineMet = 0;

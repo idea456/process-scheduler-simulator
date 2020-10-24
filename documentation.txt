@@ -1,0 +1,29 @@
+TASK 1
+
+For task 1, I implemented the First-Come-First-Served scheduling policy with the following assumptions:
+- All processes names must be unique
+- If arguments are provided, a text file must be provided and cannot be any other type
+- In the process text file, there should be no whitespace and new lines between the processes and at the end of the document
+
+To run task 1, in the command prompt, type in "./task-1-30067863" if no arguments are provided (excluding "")
+If arguments are provided, type in "./task-1-30067863 (filename).txt" where filename is the name of the file (excluding "" and circular braces ())
+
+
+TASK 2
+
+For task 2, I implemented the Round Robin scheduling policy with the following assumptions:
+- All processes names must be unique
+- If arguments are provided, a text file must be provided and cannot be any other type
+- In the process text file, there should be no whitespace and new lines between the processes and at the end of the document
+- Newly added processes will be prioritised first over ready processes
+
+To run task 2, in the command prompt, type in "./task-2-30067863" if no arguments are provided (excluding "")
+If arguments are provided, type in "./task-2-30067863 (filename).txt" where filename is the name of the file (excluding "" and circular braces ())
+
+
+TASK 3
+
+Steps of algorithm
+1. 
+
+This algorithm is inspired by the Earliest-Deadline-First algorithm.

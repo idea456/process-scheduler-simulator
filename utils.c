@@ -6,11 +6,26 @@
 #include <math.h>
 #include "process.h"
 
+/**
+ * A function that converts an integer into a string using sprintf
+ * 
+ * Arguments:
+ *      n - the integer to convert into string
+ *      str - the string pointer
+ * Returns : The string pointer containing the converted string integer
+ **/
 char *to_string(int n, char *str) {
     sprintf(str, "%d", n);
     return str;
 }
 
+/**
+ * A function that counts the number of processes in the text file
+ * 
+ * Arguments:
+ *      filename - the name of the text file which contains the list of processes with their respective values
+ * Returns : The number of processes in the text file
+ **/
 int count_processes(char *filename) {
     int processes = 0;
     int infile;
@@ -35,9 +50,15 @@ int count_processes(char *filename) {
 }
 
 
-// since we cannot assume that the process will arrive by their arrival time
+/**
+ * A function that sorts the array of pcb_t processes based on their arrival time in ascending order
+ * The sorting algorithm used is called Insertion Sort
+ * 
+ * Arguments:
+ *      processes - the array of pcb_t processes to sort
+ * Returns : The sorted array of pcb_t processes based on their arrival time
+ **/
 pcb_t *sort_pcb(pcb_t *processes, int n) {
-    // use insertion sort algorithm from GeeksforGeeks
     pcb_t key;
     int j;
     for(int i = 1; i < n; i++) {
@@ -52,6 +73,14 @@ pcb_t *sort_pcb(pcb_t *processes, int n) {
     return processes;
 }
 
+/**
+ * A function that looks into the list of processes and their respective values in the text file
+ * and formats them into a pcb_t struct, and inserts all of them into an array of pcb_t
+ * 
+ * Arguments:
+ *      filename - the name of the text file which contains the list of processes with their respective values
+ * Returns : An array of pcb_t processes formatted from the text file
+ **/
 pcb_t *insert_pcb(char *filename) {
     int count = count_processes(filename) + 1;
     pcb_t *pcbs = malloc(sizeof(pcb_t) * count);
@@ -64,7 +93,6 @@ pcb_t *insert_pcb(char *filename) {
     int i = 0;
 
     while(fgets(line, sizeof(line), infile)) {
-        // printf("%s\n", line);
         token = strtok(line, delimiter);
         pcb_t pcb;
 
@@ -89,12 +117,29 @@ pcb_t *insert_pcb(char *filename) {
     return pcbs;
 }
 
+/**
+ * A function that encapsulates the steps of formatting and sorting the list of processes from the text file
+ * into a sorted array of pcb_t processes
+ * 
+ * Arguments:
+ *      filename - the text file containing the list of processes
+ * Returns : The sorted array of pcb_t processes
+ **/
 pcb_t *get_pcb(char *filename) {
     int count = count_processes(filename) + 1;
     pcb_t *processes = insert_pcb(filename);
     return sort_pcb(processes, count);
 }
 
+/**
+ * A function that logs the results of processes such as wait time, turnaround time, and whether the deadline is met
+ * into a text file called scheduler-result.txt
+ * 
+ * Arguments:
+ *      processes - the array of processes
+ *      n - the number of processes in the processes array
+ * Returns : none
+ **/
 void log_result(pcb_t *processes, int n) {
     FILE *ptr;
     char waitTime[10], turnaroundTime[10], deadlineMet[1];
