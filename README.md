@@ -18,5 +18,16 @@ If no arguments are provided, the FCFS simulator will default into using the pro
 
 ### How it looks like
 ```
-
+Time 0: P1 has entered the system.
+Time 0: P1 is in the running state.
+Time 1: P2 has entered the system.
+Time 3: P1 has finished execution.
+Time 3: P2 is in the running state.
+Time 4: P3 has entered the system.
+Time 6: P4 has entered the system.
+Time 9: P2 has finished execution.
+Time 9: P3 is in the running state.
+Time 13: P3 has finished execution.
+Time 13: P4 has entered the system.
+Time 15: P4 has finished execution.
 ```
